@@ -1,0 +1,90 @@
+@theme {
+  /* Micro Components (e.g., Badges, Icons, Pills) */
+  --spacing-micro-xxs: 0.125em;
+  --spacing-micro-xs: 0.25em;
+  --spacing-micro-s: 0.375em;
+  --spacing-micro: 0.5em;
+  --spacing-micro-l: 0.625em;
+  --spacing-micro-xl: 0.75em;
+  --spacing-micro-xxl: 0.875em;
+
+  /* Form Controls & Interactive Units (e.g., Buttons, Inputs) */
+  --spacing-control-xxs: 0.5em;
+  --spacing-control-xs: 1em;
+  --spacing-control-s: 1.5em;
+  --spacing-control: 2em;
+  --spacing-control-l: 2.5em;
+  --spacing-control-xl: 3em;
+  --spacing-control-xxl: 3.5em;
+
+  /* UI Components & Panels (e.g., Medium Cards, Menus, Alerts) */
+  --spacing-card-xxs: 5rem;
+  --spacing-card-xs: 10rem;
+  --spacing-card-s: 15rem;
+  --spacing-card: 20rem;
+  --spacing-card-l: 25rem;
+  --spacing-card-xl: 30rem;
+  --spacing-card-xxl: 35rem;
+
+  /* Layout Containers (e.g., Large Cards, Form Sections, Grids) */
+  --spacing-layout-xxs: 18.75rem;
+  --spacing-layout-xs: 37.5rem;
+  --spacing-layout-s: 56.25rem;
+  --spacing-layout: 75rem;
+  --spacing-layout-l: 93.75rem;
+  --spacing-layout-xl: 112.5rem;
+  --spacing-layout-xxl: 131.25rem;
+
+  /* Page-Level Panels (e.g., Sections, Hero Banners, Modals) */
+  --spacing-page-xxs: 20rem;
+  --spacing-page-xs: 40rem;
+  --spacing-page-s: 60rem;
+  --spacing-page: 80rem;
+  --spacing-page-l: 100rem;
+  --spacing-page-xl: 120rem;
+  --spacing-page-xxl: 140rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --spacing-micro-xxs: 1px;
+    --spacing-micro-xs: 2px;
+    --spacing-micro-s: 3px;
+    --spacing-micro: 4px;
+    --spacing-micro-l: 5px;
+    --spacing-micro-xl: 6px;
+    --spacing-micro-xxl: 7px;
+
+    --spacing-control-xxs: 4px;
+    --spacing-control-xs: 8px;
+    --spacing-control-s: 12px;
+    --spacing-control: 16px;
+    --spacing-control-l: 20px;
+    --spacing-control-xl: 24px;
+    --spacing-control-xxl: 28px;
+
+    --spacing-card-xxs: 16px;
+    --spacing-card-xs: 32px;
+    --spacing-card-s: 48px;
+    --spacing-card: 64px;
+    --spacing-card-l: 80px;
+    --spacing-card-xl: 96px;
+    --spacing-card-xxl: 112px;
+
+    --spacing-layout-xxs: 64px;
+    --spacing-layout-xs: 128px;
+    --spacing-layout-s: 192px;
+    --spacing-layout: 128px;
+    --spacing-layout-l: 320px;
+    --spacing-layout-xl: 384px;
+    --spacing-layout-xxl: 448px;
+
+    --spacing-page-xxs: 128px;
+    --spacing-page-xs: 256px;
+    --spacing-page-s: 384px;
+    --spacing-page: 512px;
+    --spacing-page-l: 640px;
+    --spacing-page-xl: 768px;
+    --spacing-page-xxl: 896px;
+  }
+}
