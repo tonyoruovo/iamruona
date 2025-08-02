@@ -1,65 +1,37 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { ref } from 'vue'
+import NavLogo from './NavLogo.vue'
+import { Page, Path } from '@/modules/enums/ui.enum'
 
-import { Page, Path, SchemeId } from '@/modules/enums/ui.enum';
-import Menubar from 'primevue/menubar';
-import type { MenuItem } from 'primevue/menuitem';
-import { useTheme } from '@/composables/theme';
+const isMenuOpen = ref(false)
 
-const { setTheme } = useTheme()
-
-const menu = reactive<(MenuItem & {open?: boolean})[]>([
+const menuItems = [
     {
         label: 'Login',
-        icon: 'material-symbols:login-rounded',
         url: Path.LOGIN,
     },
     {
-        label: 'Mode',
-        icon: 'material-symbols-light:light-mode',
-        items: [
-            {
-                label: 'Light',
-                command: () => setTheme(SchemeId.LIGHT)
-            },
-            {
-                label: 'Dark',
-                command: () => setTheme(SchemeId.DARK)
-            },
-            {
-                label: 'System',
-                command: () => setTheme(SchemeId.SYSTEM)
-            }
-        ]
-    },
-    {
         label: 'Blog',
-        icon: 'carbon:blog',
         url: '/',
     },
     {
         label: 'Contact',
-        icon: 'fluent:contact-card-24-regular',
         url: '/',
     },
     {
         label: 'Downloads',
-        icon: 'mynaui:download',
         url: '/',
     },
     {
         label: 'Portfolio',
-        icon: 'proicons:folder-open',
         url: '/',
     },
     {
         label: 'Press',
-        icon: 'mdi:about-circle-outline',
-        url: '/',
+         url: '/',
     },
     {
         label: 'About',
-        icon: 'mdi:about-circle-outline',
         items: [
             {
                 label: 'Experience'
@@ -80,50 +52,44 @@ const menu = reactive<(MenuItem & {open?: boolean})[]>([
             }
         ]
     },
-])
-
-function onClick(i: MenuItem & {open?: boolean}, hasSubmenu: boolean) {
-    if(hasSubmenu) i.open = Boolean(i.open) ? false : true
-    menu.filter(m => m.label !== i.label).forEach(m => m.open=false)
-}
-
+]
 </script>
 
-
 <template>
-    <nav class="w-full">
-        <Menubar :model="menu">
-            <template #item="{item, hasSubmenu, label}">
-                <div v-if="!item.url" class="flex flex-row gap-x-1 items-center justify-end px-2 py-1 cursor-pointer" @click="() => onClick(item, hasSubmenu)">
-                    <iconify-icon :icon="hasSubmenu ? !item.open ? 'pepicons-pop:angle-down' : 'clarity:angle-line' : undefined" />
-                    <p>{{ label }}</p>
-                    <iconify-icon class="hidden min-[1090px]:inline max-md:inline" v-if="item.icon" :icon="item.icon" />
+    <header class="fixed flex flex-row items-center w-full h-card-xxs md:h-layout-xxs bg-background shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <nav-logo />
+                <nav class="hidden md:flex items-center space-x-4">
+                    <template v-for="item in menuItems" :key="item.label">
+                        <div v-if="item.items" class="relative group">
+                            <button class="hover:text-primary">{{ item.label }}</button>
+                            <div class="absolute hidden group-hover:block bg-background shadow-lg rounded-md mt-2 py-2 w-48">
+                                <router-link v-for="subItem in item.items" :key="subItem.label" :to="subItem.url || '#'" class="block px-4 py-2 hover:bg-gray-100">{{ subItem.label }}</router-link>
+                            </div>
+                        </div>
+                        <router-link v-else :to="item.url || '#'" class="hover:text-primary">{{ item.label }}</router-link>
+                    </template>
+                </nav>
+                <div class="md:hidden">
+                    <button @click="isMenuOpen = !isMenuOpen">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
                 </div>
-                <router-link v-else :to="item.url!" class="flex flex-row gap-x-1 items-center justify-end px-2 py-1" @click="() => onClick(item, hasSubmenu)">
-                    <iconify-icon :icon="hasSubmenu ? !item.open ? 'pepicons-pop:angle-down' : 'clarity:angle-line' : undefined" />
-                    <p>{{ label }}</p>
-                    <iconify-icon class="hidden min-[1090px]:inline max-md:inline" v-if="item.icon" :icon="item.icon" />
-                </router-link>
-            </template>
-            <!-- <template #itemicon="{item}">
-                <iconify-icon v-if="item.icon" :icon="item.icon" />
-            </template>
-            <template #submenuicon="{active}">
-                <iconify-icon v-if="active" icon="mingcute:up-fill" />
-                <iconify-icon v-else icon="mingcute:down-fill" />
-            </template> 
-            <template #button="{class: classes, id, toggleCallback}">
-                <button :id="id" :class="classes" @click="toggleCallback">
-                    <iconify-icon icon="line-md:menu" />
-                </button>
-            </template>-->
-            <template #buttonicon>
-                <iconify-icon icon="line-md:menu" />
-            </template>
-        </Menubar>
-    </nav>
+            </div>
+        </div>
+        <div v-if="isMenuOpen" class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <template v-for="item in menuItems" :key="item.label">
+                    <div v-if="item.items">
+                        <h3 class="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ item.label }}</h3>
+                        <router-link v-for="subItem in item.items" :key="subItem.label" :to="subItem.url || '#'" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">{{ subItem.label }}</router-link>
+                    </div>
+                    <router-link v-else :to="item.url || '#'" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">{{ item.label }}</router-link>
+                </template>
+            </div>
+        </div>
+    </header>
 </template>
-
-<style lang="css" scoped>
-@reference '@/assets/styles/base.css';
-</style>

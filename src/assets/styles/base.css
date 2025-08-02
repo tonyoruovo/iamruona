@@ -1,17 +1,125 @@
 
 @import '@/assets/styles/colors.css';
 @import '@/assets/styles/spacing.css';
+@import 'primeicons/primeicons.css';
 
 @import 'tailwindcss';
 
 @theme {
+  
+  /* --font-sans:
+    'Alegreya Sans', 'Segoe UI', Roboto, 'Century Gothic', 'Trebuchet MS', Arial, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif; */
+  /* --font-sans:
+    'Montserrat', 'Segoe UI', Roboto, 'Century Gothic', 'Trebuchet MS', Arial, sans-serif; */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans:
     'Alegreya Sans', 'Segoe UI', Roboto, 'Century Gothic', 'Trebuchet MS', Arial, sans-serif;
-  --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  /* --font-serif: 'Rye', Georgia, 'Times New Roman', serif; */
   --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
   --font-logo: 'Fascinate Inline', 'Times New Roman', Times, serif;
 
   --color-portrait: url(@/assets/img/napat-saeng-8zLG5tGOGxk-unsplash.jpg);
+
+  /* Micro Components (e.g., Badges, Icons, Pills) */
+  --spacing-micro-xxs: 0.125em;
+  --spacing-micro-xs: 0.25em;
+  --spacing-micro-s: 0.375em;
+  --spacing-micro: 0.5em;
+  --spacing-micro-l: 0.625em;
+  --spacing-micro-xl: 0.75em;
+  --spacing-micro-xxl: 0.875em;
+
+  /* Form Controls & Interactive Units (e.g., Buttons, Inputs) */
+  --spacing-control-xxs: 0.5em;
+  --spacing-control-xs: 1em;
+  --spacing-control-s: 1.5em;
+  --spacing-control: 2em;
+  --spacing-control-l: 2.5em;
+  --spacing-control-xl: 3em;
+  --spacing-control-xxl: 3.5em;
+
+  /* UI Components & Panels (e.g., Medium Cards, Menus, Alerts) */
+  --spacing-card-xxs: 5rem;
+  --spacing-card-xs: 10rem;
+  --spacing-card-s: 15rem;
+  --spacing-card: 20rem;
+  --spacing-card-l: 25rem;
+  --spacing-card-xl: 30rem;
+  --spacing-card-xxl: 35rem;
+
+  /* Layout Containers (e.g., Large Cards, Form Sections, Grids) */
+  --spacing-layout-xxs: 18.75rem;
+  --spacing-layout-xs: 37.5rem;
+  --spacing-layout-s: 56.25rem;
+  --spacing-layout: 75rem;
+  --spacing-layout-l: 93.75rem;
+  --spacing-layout-xl: 112.5rem;
+  --spacing-layout-xxl: 131.25rem;
+
+  /* Page-Level Panels (e.g., Sections, Hero Banners, Modals) */
+  --spacing-page-xxs: 20rem;
+  --spacing-page-xs: 40rem;
+  --spacing-page-s: 60rem;
+  --spacing-page: 80rem;
+  --spacing-page-l: 100rem;
+  --spacing-page-xl: 120rem;
+  --spacing-page-xxl: 140rem;
+
+  /*Theme colors*/
+  /*
+  Alternatives include:
+    Hematite: Hematite
+    Pearl: Tahitian Pearl
+    Moonstone: Gray Moonstone
+    Agate: Gray Agate
+    Spinel: Gray Spinel
+    Labradorite: Labradorite
+    Diamond: Gray Diamond
+    Chalcedony: Chalcedony
+  */
+  --color-background: var(--color-alabaster);
+  --color-surface: var(--color-quick-silver);
+
+  --color-primary: var(--color-azure);
+  --color-accent: var(--color-fire-opal);
+  --color-glyph: var(--color-onyx);
+  /*
+  Alternatives include:
+    Ruby: Ruby
+    Garnet: Garnet
+    Spinel: Spinel
+    Rubellite: Red Tourmaline
+    Jasper: Red Jasper
+    Coral: Coral
+    Bixbite: Red Beryl
+    Carnelian: Carnelian
+  */
+  --color-error: var(--color-carnelian); /*Cinnabar for dark mode*/
+  /*
+  Alternatives include:
+    Amber: Amber
+    Carnelian: Carnelian
+    Citrine: Citrine
+    Sunstone: Sunstone
+    Topaz: Imperial Topaz
+    Spessartine: Spessartine Garnet
+    Fire Opal: Fire Opal
+    Padparadscha: Padparadscha Sapphire
+  */
+  --color-warn: var(--color-citrine);
+  /*
+  Alternatives include:
+    Emerald: Emerald
+    Jade: Jade
+    Peridot: Peridot
+    Malachite: Malachite
+    Tsavorite: Tsavorite Garnet
+    Chrysoprase: Chrysoprase
+    Tourmaline: Green Tourmaline
+    Moldavite: Moldavite
+  */
+  --color-success: var(--color-malachite); /* Maybe jade or emerald */
 }
 @utility mui-display-lg {
   @apply font-serif text-[68.8px]/[96px] tracking-[-2%];

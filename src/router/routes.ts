@@ -51,6 +51,12 @@ const routes = [,
         component: () => import("@/views/auth/RegisterView.vue")
     },
     {
+        path: '/sample',
+        name: 'ThemeCalibration',
+        meta: { nav: true, footer: true },
+        component: () => import('@/views/sample/ThemeCalibrationView.vue')
+    },
+    {
         path: "/:catchAll(.*)",
         redirect: Path.ERROR // Redirect to the error page for unknown routes
     }

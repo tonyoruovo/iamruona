@@ -1,5 +1,5 @@
 /*Based on https://en.wikipedia.org/wiki/List_of_colors_(alphabetical)*/
-@theme {
+:root {
   /*Color primitives as tailwind keyword*/
   --color-absolute-zero: #0048ba;
   --color-acid-green: #b0bf1a;
@@ -1160,61 +1160,6 @@
   --color-zaffre: #0014a8;
   --color-zebra-white: #f5f5f5;
   --color-zinnwaldite: #2c1608;
-
-  /*Theme colors*/
-  /*
-  Alternatives include:
-    Hematite: Hematite
-    Pearl: Tahitian Pearl
-    Moonstone: Gray Moonstone
-    Agate: Gray Agate
-    Spinel: Gray Spinel
-    Labradorite: Labradorite
-    Diamond: Gray Diamond
-    Chalcedony: Chalcedony
-  */
-  --color-background: var(--color-alabaster);
-  --color-surface: var(--color-quick-silver);
-
-  --color-primary: var(--color-azure);
-  --color-accent: var(--color-fire-opal);
-  --color-glyph: var(--color-onyx);
-  /*
-  Alternatives include:
-    Ruby: Ruby
-    Garnet: Garnet
-    Spinel: Spinel
-    Rubellite: Red Tourmaline
-    Jasper: Red Jasper
-    Coral: Coral
-    Bixbite: Red Beryl
-    Carnelian: Carnelian
-  */
-  --color-error: var(--color-carnelian); /*Cinnabar for dark mode*/
-  /*
-  Alternatives include:
-    Amber: Amber
-    Carnelian: Carnelian
-    Citrine: Citrine
-    Sunstone: Sunstone
-    Topaz: Imperial Topaz
-    Spessartine: Spessartine Garnet
-    Fire Opal: Fire Opal
-    Padparadscha: Padparadscha Sapphire
-  */
-  --color-warn: var(--color-citrine);
-  /*
-  Alternatives include:
-    Emerald: Emerald
-    Jade: Jade
-    Peridot: Peridot
-    Malachite: Malachite
-    Tsavorite: Tsavorite Garnet
-    Chrysoprase: Chrysoprase
-    Tourmaline: Green Tourmaline
-    Moldavite: Moldavite
-  */
-  --color-success: var(--color-malachite); /* Maybe jade or emerald */
 }
 
 @media (prefers-color-scheme: dark) {
